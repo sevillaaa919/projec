@@ -1,0 +1,283 @@
+/* ============================================================
+   BARANGAY SYSTEM - Styles
+   1 - colors   2 - layout   3 - parts   4 - login   5 - print
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1 - COLORS (change them here, the whole site follows)
+   ------------------------------------------------------------ */
+:root {
+  --primary: #166534;
+  --secondary: #22C55E;
+  --accent: #F97316;
+  --bg: #F9FAF7;
+  --text: #1F2937;
+  --danger: #DC2626;
+  --line: #E5E7EB;
+}
+
+/* ------------------------------------------------------------
+   2 - LAYOUT (sidebar on the left, page on the right)
+   ------------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#nav {
+  width: 220px;
+  background: var(--primary);
+  padding: 16px 0;
+  flex-shrink: 0;
+}
+
+.brand {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 20px 16px;
+}
+
+#nav a {
+  display: block;
+  color: #dcfce7;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-left: 4px solid transparent;
+}
+
+#nav a:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+/* the link of the page we are on */
+#nav a.active {
+  color: #fff;
+  border-left-color: var(--accent);
+  background: rgba(255, 255, 255, .15);
+}
+
+main {
+  flex: 1;
+  padding: 24px;
+  max-width: 1000px;
+}
+
+h1 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* ------------------------------------------------------------
+   3 - PARTS (cards, forms, buttons, table, badges, toast)
+   ------------------------------------------------------------ */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* dashboard boxes */
+.stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+  border-top: 4px solid var(--secondary);
+}
+
+.stat.pending {
+  border-top-color: var(--accent);
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+button, .btn {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover, .btn:hover {
+  background: #14532d;
+}
+
+button.secondary {
+  background: #6b7280;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  background: #f0fdf4;
+  color: var(--primary);
+}
+
+/* status badges (the class name is the status) */
+.badge {
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: .85rem;
+}
+
+.Pending {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.Approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.Released {
+  background: var(--primary);
+  color: #fff;
+}
+
+.Cancelled {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+/* message at the bottom right */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+.toast.error {
+  background: var(--danger);
+}
+
+.hidden {
+  display: none;
+}
+
+/* error text under the login form */
+p.error {
+  color: var(--danger);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   4 - LOGIN (no sidebar, form in the center)
+   ------------------------------------------------------------ */
+.login-body main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: none;
+}
+
+.login {
+  flex-direction: column;
+  width: 320px;
+}
+
+.login h1 {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   5 - CERTIFICATE and PRINT
+   ------------------------------------------------------------ */
+.certificate {
+  background: #fff;
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+  border: 2px solid var(--primary);
+  text-align: center;
+}
+
+.certificate p {
+  text-align: left;
+  line-height: 1.8;
+}
+
+.signature {
+  margin-top: 60px;
+  text-align: right;
+}
+
+/* when printing, hide the sidebar, the buttons and the toast */
+@media print {
+  #nav, .no-print, .toast {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  main {
+    padding: 0;
+    max-width: none;
+  }
+}

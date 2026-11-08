@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barangay System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site navigation (script.js fills in the links) -->
+  <nav id="nav"></nav>
+
+  <!-- The page content changes here depending on the link clicked -->
+  <main id="view"></main>
+
+  <!-- script.js first: it has the shared functions and the routes list -->
+  <script src="script.js"></script>
+
+  <!-- each page lives in its own file inside components -->
+  <script src="components/login.js"></script>
+  <script src="components/dashboard.js"></script>
+  <script src="components/residents.js"></script>
+  <script src="components/requests.js"></script>
+  <script src="components/certificate.js"></script>
+
+</body>
+</html>
